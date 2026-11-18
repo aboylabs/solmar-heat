@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar Heat — Open-World Crime Game</title>
+<link rel="icon" href="./favicon.png">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<canvas id="game" aria-label="Solmar Heat: an open-world crime game in Solmar City"></canvas>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="hud-top-left">
+    <div id="hp-bar"><div id="hp-fill"></div><span id="hp-text">100 HP</span></div>
+    <div id="cash">$50</div>
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="clock">08:00</div>
+    <div id="district">Solmar City</div>
+  </div>
+  <div id="hud-top-right">
+    <canvas id="minimap" width="220" height="165"></canvas>
+  </div>
+  <div id="objective"></div>
+  <div id="ammo"></div>
+  <div id="speed" class="hidden"></div>
+  <div id="msg" class="hidden"></div>
+  <div id="briefing" class="hidden">
+    <div id="brief-title"></div>
+    <div id="brief-text"></div>
+  </div>
+  <div id="shop" class="hidden">
+    <div id="shop-title"></div>
+    <div id="shop-items"></div>
+    <button id="shop-close">Close (Esc)</button>
+  </div>
+</div>
+
+<!-- Title screen -->
+<div id="screen-title" class="screen">
+  <h1>SOLMAR HEAT</h1>
+  <p class="tagline">A sun-soaked open-world crime story in Solmar City</p>
+  <p class="story">Rex Dalton is back in town with fifty bucks and no ride. Steal cars, outrun the
+  law, run jobs for the crew — and crack the Solmar Reserve.</p>
+  <div class="controls">
+    <p><b>WASD / Arrows</b> move &amp; drive &nbsp;•&nbsp; <b>Shift</b> sprint &nbsp;•&nbsp; <b>Mouse</b> aim</p>
+    <p><b>Left click</b> punch / shoot &nbsp;•&nbsp; <b>E</b> enter car, steal car, interact</p>
+    <p><b>P / Esc</b> pause &nbsp;•&nbsp; <b>Enter</b> start mission &nbsp;•&nbsp; <b>M</b> mute</p>
+  </div>
+  <button id="btn-new" class="big">New Game</button>
+  <button id="btn-continue" class="big hidden">Continue</button>
+  <p class="fine">Six missions. Ten hidden cash packages. One very hot city.</p>
+</div>
+
+<!-- Pause menu -->
+<div id="screen-pause" class="screen hidden">
+  <h1>PAUSED</h1>
+  <button id="btn-resume" class="big">Resume</button>
+  <button id="btn-save" class="big">Save Game</button>
+  <span id="save-note"></span>
+  <button id="btn-restart" class="big">Restart (New Game)</button>
+  <button id="btn-quit-title" class="big">Quit to Title</button>
+  <h2>Missions</h2>
+  <ul id="mission-list"></ul>
+  <div class="controls">
+    <p><b>WASD / Arrows</b> move &amp; drive &nbsp;•&nbsp; <b>Shift</b> sprint &nbsp;•&nbsp; <b>Mouse</b> aim</p>
+    <p><b>Left click</b> punch / shoot &nbsp;•&nbsp; <b>E</b> enter car, steal car, interact</p>
+    <p><b>P / Esc</b> pause &nbsp;•&nbsp; <b>Enter</b> start mission &nbsp;•&nbsp; <b>M</b> mute</p>
+  </div>
+</div>
+
+<!-- Wasted screen -->
+<div id="screen-wasted" class="screen hidden">
+  <h1 class="red">WASTED</h1>
+  <p>Rex got taken down. The hospital patched him up — for $50.</p>
+  <button id="btn-retry-wasted" class="big">Retry (Enter)</button>
+</div>
+
+<!-- Busted screen -->
+<div id="screen-busted" class="screen hidden">
+  <h1 class="red">BUSTED</h1>
+  <p>The Solmar PD caught Rex. Bail was $100. The heat is off — for now.</p>
+  <button id="btn-retry-busted" class="big">Retry (Enter)</button>
+</div>
+
+<!-- Victory screen -->
+<div id="screen-victory" class="screen hidden">
+  <h1 class="gold">THE BIG SCORE</h1>
+  <p>Rex cracked the Solmar Reserve and walked away clean. Solmar City is his.</p>
+  <p id="victory-stats"></p>
+  <button id="btn-free-roam" class="big">Keep Playing — Free Roam (Enter)</button>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
